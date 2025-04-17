@@ -13,6 +13,51 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * 
+ *
+ * @property string $id
+ * @property string $username
+ * @property string $password
+ * @property string|null $session_id
+ * @property string $mnemonic
+ * @property string|null $payment_address
+ * @property string|null $last_seen
+ * @property int $login_2fa
+ * @property string $referral_code
+ * @property string|null $referred_by
+ * @property string|null $bitmessage_address
+ * @property string|null $pgp_key
+ * @property string|null $msg_public_key
+ * @property string|null $msg_private_key
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Address> $addresses
+ * @property-read int|null $addresses_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\PGPKey> $pgpKeys
+ * @property-read int|null $pgp_keys_count
+ * @property-read User|null $referredBy
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereBitmessageAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLastSeen($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLogin2fa($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereMnemonic($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereMsgPrivateKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereMsgPublicKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePaymentAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePgpKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereReferralCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereReferredBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereSessionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUsername($value)
+ * @mixin \Eloquent
+ */
 class User extends Authenticatable
 {
     use Uuids;
