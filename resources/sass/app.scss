@@ -1,8 +1,51 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// Bootstrap Core Imports
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
 
-// Variables
-@import 'variables';
+// Custom Overrides
+@import 'variables';   // Your custom variables
+@import 'buttons';     // Custom button styles
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// navbar mobile resize support without js
+@import "navbar";
+
+// slider import
+@import "slider";
+
+// vendor profile backgrounds import
+@import "profile_backgrounds";
+
+// vendor profile
+@import "profile";
+
+// tooltip
+
+@import "tooltip";
+
+// Utility Extensions
+@import 'map';         // Extend utilities with your color maps
+
+// Bootstrap Styles
+@import 'bootstrap/scss/bootstrap';  // Final import
+
+
+.category-breadcrumb .breadcrumb{
+    padding: 0.5rem;
+    font-size: 0.8rem;
+}
+.category-breadcrumb .breadcrumb .breadcrumb-item + .breadcrumb-item::before{
+    content: ">";
+}
+.list-group-item-active{
+    background-color: #0d6efd;
+    border-color: gray;
+}
+
+table.product td{
+    padding: 0.4rem !important;
+}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\VerifyLogin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,7 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'verify_2fa' => VerifyLogin::class,
+//            'is_banned' => IsBanned::class,
+//            'admin_panel_access' => HasAdminPanelAccess::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

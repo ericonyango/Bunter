@@ -1,0 +1,183 @@
+@import "bootstrap/scss/maps";
+$gray: (
+    "gray-100": #f8f9fa,
+    "gray-200": #e9ecef,
+    "gray-300": #dee2e6,
+    "gray-400": #ced4da,
+    "gray-500": #adb5bd,
+    "gray-600": #6c757d,
+    "gray-700": #495057,
+    "gray-800": #343a40,
+    "gray-900": #212529,
+);
+$silvers: (
+    "silver-100": #f8f9fa,
+    "silver-200": #e0e0e0,
+    "silver-300": #c0c0c0,
+    "silver-400": #a9a9a9,
+    "silver-500": #999999,
+    "silver-600": #808080,
+    "silver-700": #696969,
+    "silver-800": #505050,
+    "silver-900": #383838
+);
+
+$maroons: (
+    "maroon-100": #f4dada,
+    "maroon-200": #e19999,
+    "maroon-300": #cc6666,
+    "maroon-400": #b94c4c,
+    "maroon-500": #800000,
+    "maroon-600": #730000,
+    "maroon-700": #660000,
+    "maroon-800": #4d0000,
+    "maroon-900": #330000
+);
+
+$olives: (
+    "olive-100": #f0f0da,
+    "olive-200": #dcdc9c,
+    "olive-300": #c0c060,
+    "olive-400": #a0a040,
+    "olive-500": #808000,
+    "olive-600": #737300,
+    "olive-700": #666600,
+    "olive-800": #4d4d00,
+    "olive-900": #333300
+);
+
+$limes: (
+    "lime-100": #f4ffdf,
+    "lime-200": #d9ff9e,
+    "lime-300": #bfff60,
+    "lime-400": #a3ff33,
+    "lime-500": #00ff00,
+    "lime-600": #00cc00,
+    "lime-700": #009900,
+    "lime-800": #006600,
+    "lime-900": #003300
+);
+
+$aquas: (
+    "aqua-100": #e0ffff,
+    "aqua-200": #b3ffff,
+    "aqua-300": #80ffff,
+    "aqua-400": #4dffff,
+    "aqua-500": #00ffff,
+    "aqua-600": #00cccc,
+    "aqua-700": #009999,
+    "aqua-800": #006666,
+    "aqua-900": #003333
+);
+
+$navys: (
+    "navy-100": #dce1f1,
+    "navy-200": #a8b3db,
+    "navy-300": #7b91c7,
+    "navy-400": #4d6fb3,
+    "navy-500": #000080,
+    "navy-600": #000073,
+    "navy-700": #000066,
+    "navy-800": #00004d,
+    "navy-900": #000033
+);
+
+$fuchsias: (
+    "fuchsia-100": #ffe0f0,
+    "fuchsia-200": #ffb3db,
+    "fuchsia-300": #ff80c7,
+    "fuchsia-400": #ff4db3,
+    "fuchsia-500": #ff00ff,
+    "fuchsia-600": #cc00cc,
+    "fuchsia-700": #990099,
+    "fuchsia-800": #660066,
+    "fuchsia-900": #330033
+);
+
+$browns: (
+    "brown-100": #efebe9,
+    "brown-200": #d7ccc8,
+    "brown-300": #bcaaa4,
+    "brown-400": #a1887f,
+    "brown-500": #8d6e63,
+    "brown-600": #795548,
+    "brown-700": #6d4c41,
+    "brown-800": #5d4037,
+    "brown-900": #4e342e
+);
+
+$violets: (
+    "violet-100": #f3e5f5,
+    "violet-200": #e1bee7,
+    "violet-300": #ce93d8,
+    "violet-400": #ba68c8,
+    "violet-500": #ab47bc,
+    "violet-600": #9c27b0,
+    "violet-700": #8e24aa,
+    "violet-800": #7b1fa2,
+    "violet-900": #6a1b9a
+);
+
+$magentas: (
+    "magenta-100": #fce4ec,
+    "magenta-200": #f8bbd0,
+    "magenta-300": #f48fb1,
+    "magenta-400": #f06292,
+    "magenta-500": #ec407a,
+    "magenta-600": #e91e63,
+    "magenta-700": #d81b60,
+    "magenta-800": #c2185b,
+    "magenta-900": #ad1457
+);
+
+
+// Extend all color shade maps into one
+$all-colors: map-merge-multiple(
+        $blues,
+        $indigos,
+        $purples,
+        $pinks,
+        $reds,
+        $oranges,
+        $yellows,
+        $greens,
+        $teals,
+        $cyans,
+        $browns,
+        $violets,
+        $magentas,
+        $silvers,
+        $maroons,
+        $olives,
+        $limes,
+        $aquas,
+        $navys,
+        $fuchsias,
+        $gray,
+
+);
+
+// Merge into utilities for `text-{color}-{level}` and `bg-{color}-{level}`
+$utilities: map-merge(
+        $utilities,
+        (
+            "color": map-merge(
+                    map-get($utilities, "color"),
+                    (
+                        values: map-merge(
+                                map-get(map-get($utilities, "color"), "values"),
+                                $all-colors
+                        )
+                    )
+            ),
+            "background-color": map-merge(
+                    map-get($utilities, "background-color"),
+                    (
+                        values: map-merge(
+                                map-get(map-get($utilities, "background-color"), "values"),
+                                $all-colors
+                        )
+                    )
+            )
+        )
+);
